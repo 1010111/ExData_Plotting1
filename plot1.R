@@ -22,9 +22,11 @@ readRow <- endIdx - beginIdx
 hpcData <- read.table(filename,sep=";",header=TRUE, colClasses = columnClasses, na.strings="?", comment.char="", quote="", skip = beginIdx-1, nrows = readRow)
 names(hpcData) <- names(readToCheckClass)
 
+#call graphic device first based on discussion https://class.coursera.org/exdata-032/forum/thread?thread_id=50
+png(file="plot1.png",width=480,height=480)
+
 #plot a histogram
 hist(hpcData$Global_active_power, col="red", main="Global Active Power", xlab = "Global Active Power (kilowatts)")
 
 #copy plot to png file
-dev.copy(png,file="plot1.png",width=480,height=480)
 dev.off()

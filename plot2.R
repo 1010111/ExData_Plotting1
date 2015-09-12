@@ -27,9 +27,11 @@ names(hpcData) <- names(readToCheckClass)
 #mutate data to format date and time
 hpcData <- mutate(hpcData, DateTime=as.POSIXct(strptime(paste(Date,Time),format="%d/%m/%Y %H:%M:%S")))
 
+#call graphic device first based on discussion https://class.coursera.org/exdata-032/forum/thread?thread_id=50
+png(file="plot2.png",width=480,height=480)
+
 #plot number 2
 plot(x=hpcData$DateTime,y=hpcData$Global_active_power,type="l",ylab = "Global Active Power (kilowatts)",xlab = "")
 
 #copy plot to png file
-dev.copy(png,file="plot2.png",width=480,height=480)
 dev.off()
