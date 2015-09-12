@@ -1,6 +1,6 @@
 rm(list=ls())
 #make sure the file exists, otherwise it will stop the operation
-filename="../household_power_consumption.txt"
+filename="household_power_consumption.txt"
 if(!file.exists(filename)){
     stop("file household_power_consumption.txt not found")    
 }
